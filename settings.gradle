@@ -3,6 +3,13 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
         mavenLocal()
+        maven {
+            url = uri("https://maven.pkg.github.com/OptivaInc/maven")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
     }
     plugins {
         id "${quarkusPluginId}" version "${quarkusPluginVersion}"
